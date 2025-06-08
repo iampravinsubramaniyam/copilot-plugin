@@ -9,9 +9,9 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://github.com/iampravinsubramaniyam.github.io/copilot-plugin/openapi.yaml"
+    "url":"https://iampravinsubramaniyam.github.io/copilot-plugin/openapi.yaml"
   },
-  "logo_url": "https://github.com/iampravinsubramaniyam.github.io/copilot-plugin/logo.png",
+  "logo_url": "https://iampravinsubramaniyam.github.io/copilot-plugin/logo.png",
   "contact_email": "support@yourdomain.com",
-  "legal_info_url": "https://github.com/iampravinsubramaniyam.github.io/copilot-plugin/legal.html"
+  "legal_info_url": "https://iampravinsubramaniyam.github.io/copilot-plugin/legal.html"
 }
