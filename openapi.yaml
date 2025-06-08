@@ -26,6 +26,7 @@ paths:
                   description: Unique user identifier
               required:
                 - message
+                - user_id
       responses:
         '200':
           description: Successful response
@@ -44,6 +45,7 @@ paths:
           description: Bad request
         '500':
           description: Internal server error
+      x-ms-visibility: important
       x-ms-no-auth: true
 
   /api/status:
@@ -65,14 +67,24 @@ paths:
                   uptime:
                     type: number
                     description: Bot uptime in seconds
+        '500':
+          description: Internal server error
+      x-ms-visibility: important
       x-ms-no-auth: true
 
 components: {}
+
 security: []
 
 x-ms-plugin:
+  name: chatbot-plugin
+  publisher: BAPS
+  description: BAPS Chatbot Copilot Plugin for internal Q&A and assistance.
+  tags:
+    - chatbot
+    - assistant
+  apiVersion: v1
   categories:
     - chat
-  publisher: BAPS
-  owner: Praveen Subramaniyam
-  description: BAPS Chatbot Copilot Plugin
+  auth:
+    type: none
