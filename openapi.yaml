@@ -64,3 +64,13 @@ paths:
                   uptime:
                     type: number
                     description: Bot uptime in seconds
+
+components:
+  securitySchemes:
+    noAuth:
+      type: http
+      scheme: none
+      x-ms-no-auth: true
+
+security:
+  - noAuth: []
