@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Chatbot API Integration
-  description: bot integration with Copilot
+  description: Bot integration with Microsoft Copilot
   version: 'v1'
 servers:
   - url: https://bapsai.com:3581
@@ -64,3 +64,5 @@ paths:
                   uptime:
                     type: number
                     description: Bot uptime in seconds
+
+components: {}
