@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  title: Chatbot API Integration
+  description: bot integration with Copilot
+  version: 'v1'
+servers:
+  - url: https://bapsai.com:3581
+paths:
+  /api/chat:
+    post:
+      operationId: sendMessage
+      summary: Send a message to the bot
+      description: Process user input and return bot response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: User's message
+                user_id:
+                  type: string
+                  description: Unique user identifier
+              required:
+                - message
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: Bot's response message
+                  status:
+                    type: string
+                    description: Response status
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+
+  /api/status:
+    get:
+      operationId: getStatus
+      summary: Check bot status
+      description: Get the current status of the bot
+      responses:
+        '200':
+          description: Bot status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Current bot status
+                  uptime:
+                    type: number
+                    description: Bot uptime in seconds
