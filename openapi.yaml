@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Chatbot API Integration
-  description: bot integration with Copilot
+  description: Bot integration with Microsoft Copilot
   version: 'v1'
 servers:
   - url: https://bapsai.com:3581
@@ -44,6 +44,7 @@ paths:
           description: Bad request
         '500':
           description: Internal server error
+      x-ms-no-auth: true
 
   /api/status:
     get:
@@ -64,13 +65,14 @@ paths:
                   uptime:
                     type: number
                     description: Bot uptime in seconds
-
-components:
-  securitySchemes:
-    noAuth:
-      type: http
-      scheme: none
       x-ms-no-auth: true
 
-security:
-  - noAuth: []
+components: {}
+security: []
+
+x-ms-plugin:
+  categories:
+    - chat
+  publisher: BAPS
+  owner: Praveen Subramaniyam
+  description: BAPS Chatbot Copilot Plugin
