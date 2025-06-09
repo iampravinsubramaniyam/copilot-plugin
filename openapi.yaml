@@ -6,11 +6,11 @@ info:
 servers:
   - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
 paths:
-  /baps/get/getPublicProfile:
+  /baps/get/getPersonalInformation:
     get:
-      operationId: getPublicProfile
-      summary: Get public profile
-      description: Fetches public profile using userId
+      operationId: getPersonalInformation
+      summary: Get personal information
+      description: Fetches personal profile using userId (email)
       parameters:
         - name: userId
           in: query
@@ -30,12 +30,31 @@ paths:
               schema:
                 type: object
                 properties:
+                  personIdExternal:
+                    type: string
                   firstName:
                     type: string
                   lastName:
                     type: string
-                  jobTitle:
+                  gender:
                     type: string
+                  nationality:
+                    type: string
+                  middleName:
+                    type: string
+                  nativePreferredLang:
+                    type: string
+                  salutation:
+                    type: string
+                  maritalStatus:
+                    type: string
+                  __metadata:
+                    type: object
+                    properties:
+                      uri:
+                        type: string
+                      type:
+                        type: string
         '401':
           description: Unauthorized - API key missing or invalid
         '500':
