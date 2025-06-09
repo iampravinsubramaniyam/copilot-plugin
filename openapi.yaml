@@ -17,11 +17,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: api-key
-          in: header
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful response with personal data
@@ -56,7 +51,7 @@ paths:
                       type:
                         type: string
         '401':
-          description: Unauthorized - API key missing or invalid
+          description: Unauthorized
         '500':
           description: Server error
 components: {}
