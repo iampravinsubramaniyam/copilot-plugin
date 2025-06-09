@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
 paths:
-  /baps/get/getPersonalInformation:
+  /baps/get/getUserPersonalDataC
     get:
       operationId: getPersonalInformation
       summary: Get personal information
