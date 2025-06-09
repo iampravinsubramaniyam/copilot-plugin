@@ -6,11 +6,11 @@ info:
 servers:
   - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
 paths:
-  /baps/get/getUserPersonalData:
+  /baps/get/getPublicProfile:
     get:
-      operationId: getUserPersonalData
-      summary: Get user personal data
-      description: Fetches personal data using userId
+      operationId: getPublicProfile
+      summary: Get public profile
+      description: Fetches public profile using userId
       parameters:
         - name: userId
           in: query
