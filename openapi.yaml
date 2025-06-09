@@ -8,7 +8,7 @@ servers:
 paths:
   /baps/get/getUserPersonalDataC:
     get:
-      operationId: getPersonalInformation
+      operationId: getUserPersonalDataC
       summary: Get personal information
       description: Fetches personal profile using userId (email)
       parameters:
