@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: BAPS Chatbot Copilot Plugin
-  description: Plugin to fetch personal user data from BAPS backend
+  title: BAPS Chatbot Plugin
+  description: Plugin to fetch profile data using email (with consent)
   version: 'v1'
 servers:
   - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
@@ -9,8 +9,8 @@ paths:
   /baps/get/getPublicProfile:
     get:
       operationId: getPublicProfile
-      summary: Get public profile
-      description: Fetches public profile using userId
+      summary: Get profile by email
+      description: Fetch profile information using user’s email address (only with consent)
       parameters:
         - name: userId
           in: query
@@ -24,7 +24,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Successful response with personal data
+          description: Successful response with profile data
           content:
             application/json:
               schema:
@@ -39,7 +39,6 @@ paths:
                   jobTitle:
                     type: string
         '401':
-          description: Unauthorized - API key missing or invalid
+          description: Unauthorized
         '500':
           description: Server error
-components: {}
