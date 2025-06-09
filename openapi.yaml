@@ -34,8 +34,6 @@ paths:
                     type: string
                   lastName:
                     type: string
-                  email:
-                    type: string
                   jobTitle:
                     type: string
         '401':
