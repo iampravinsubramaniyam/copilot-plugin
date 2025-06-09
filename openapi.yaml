@@ -5,6 +5,10 @@ info:
   version: 'v1'
 servers:
   - url: https://bapsai.com:3581
+    description: Node.js Production Server (Bot)
+  - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
+    description: Spring Boot Backend (Dev)
+
 paths:
   /api/chat:
     post:
@@ -64,3 +68,71 @@ paths:
                   uptime:
                     type: number
                     description: Bot uptime in seconds
+
+  /baps/get/getUserPersonalData:
+    get:
+      operationId: getUserPersonalData
+      summary: Get user personal data
+      description: Fetches first name, last name, gender, etc., using userId
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          description: Email ID of the user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful user data response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            personalInfoNav:
+                              type: object
+                              properties:
+                                results:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      personIdExternal:
+                                        type: string
+                                      firstName:
+                                        type: string
+                                      middleName:
+                                        type: string
+                                      lastName:
+                                        type: string
+                                      gender:
+                                        type: string
+                                      nationality:
+                                        type: string
+                                      nativePreferredLang:
+                                        type: string
+                                      salutation:
+                                        type: string
+                                      maritalStatus:
+                                        type: string
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+      security:
+        - apiKeyAuth: []
+
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
