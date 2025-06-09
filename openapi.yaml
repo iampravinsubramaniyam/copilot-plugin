@@ -1,8 +1,9 @@
 openapi: 3.0.3
 info:
   title: Chatbot API Integration
-  description: bot integration with Copilot
+  description: Bot integration with Copilot
   version: 'v1'
+
 servers:
   - url: https://bapsai.com:3581
     description: Node.js Production Server (Bot)
