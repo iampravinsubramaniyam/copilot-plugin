@@ -1,44 +1,69 @@
 openapi: 3.0.3
 info:
-  title: BAPS Chatbot Plugin
-  description: Plugin to fetch profile data using email (with consent)
+  title: Chatbot API Integration
+  description: bot integration with Copilot
   version: 'v1'
 servers:
+  - url: https://bapsai.com:3581
+    description: Node.js Production Server (Bot)
   - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
+    description: Node.js Production Server (Bot)
 paths:
-  /baps/get/getPublicProfile:
-    get:
-      operationId: getPublicProfile
-      summary: Get profile by email
-      description: Fetch profile information using user’s email address (only with consent)
-      parameters:
-        - name: userId
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: api-key
-          in: header
-          required: true
-          schema:
-            type: string
+  /api/chat:
+    post:
+      operationId: sendMessage
+      summary: Send a message to the bot
+      description: Process user input and return bot response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: User's message
+                user_id:
+                  type: string
+                  description: Unique user identifier
+              required:
+                - message
       responses:
         '200':
-          description: Successful response with profile data
+          description: Successful response
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  firstName:
+                  response:
                     type: string
-                  lastName:
+                    description: Bot's response message
+                  status:
                     type: string
-                  email:
-                    type: string
-                  jobTitle:
-                    type: string
-        '401':
-          description: Unauthorized
+                    description: Response status
+        '400':
+          description: Bad request
         '500':
-          description: Server error
+          description: Internal server error
+
+  /api/status:
+    get:
+      operationId: getStatus
+      summary: Check bot status
+      description: Get the current status of the bot
+      responses:
+        '200':
+          description: Bot status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Current bot status
+                  uptime:
+                    type: number
+                    description: Bot uptime in seconds
