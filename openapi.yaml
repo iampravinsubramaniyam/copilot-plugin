@@ -1,8 +1,15 @@
 openapi: 3.0.3
 info:
   title: BAPS Chatbot Copilot Plugin
-  description: Plugin to fetch personal user data from BAPS backend
-  version: 'v1'
+  description: Plugin to fetch personal user data from the BAPS backend using the userId (email).
+  version: '1.0.0'
+  contact:
+    name: BAPS Consulting
+    email: contactus@bapsconsulting.com
+    url: https://bapsconsulting.com
+  license:
+    name: Proprietary
+    url: https://iampravinsubramaniyam.github.io/copilot-plugin/legal.html
 servers:
   - url: https://bapsai.com:1443/bapsChatbotSfBackendDev-0.0.1-SNAPSHOT
 paths:
@@ -10,13 +17,15 @@ paths:
     get:
       operationId: getUserPersonalDataC
       summary: Get personal information
-      description: Fetches personal profile using userId (email)
+      description: Fetches personal profile using `userId` (email).
       parameters:
         - name: userId
           in: query
           required: true
+          description: The user's email address (e.g., praveen.subramaniyam@bapsconsulting.com)
           schema:
             type: string
+            format: email
       responses:
         '200':
           description: Successful response with personal data
@@ -51,7 +60,7 @@ paths:
                       type:
                         type: string
         '401':
-          description: Unauthorized
+          description: Unauthorized (if enforced by backend)
         '500':
-          description: Server error
+          description: Internal server error
 components: {}

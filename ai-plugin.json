@@ -1,7 +1,7 @@
 {
   "schema_version": "v1",
-  "name_for_human": "ChatbotV2 Plugin",
-  "name_for_model": "chatbotv2_plugin",
+  "name_for_human": "Baps Chatbot Plugin",
+  "name_for_model": "baps_chatbot_plugin",
   "description_for_human": "Talk to our intelligent bot for help",
   "description_for_model": "Use this plugin to send messages and get responses from our chatbot. Useful for support, inquiries, and status updates.",
   "auth": {
